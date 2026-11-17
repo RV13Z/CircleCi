@@ -1,1 +1,15 @@
+version: 2.1
 
+jobs:
+  probar:
+    docker:
+      - image: cimg/python:3.11
+    steps:
+      - checkout
+      - run: pip install pytest
+      - run: pytest
+
+workflows:
+  main:
+    jobs:
+      - probar
